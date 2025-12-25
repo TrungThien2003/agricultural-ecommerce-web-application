@@ -46,15 +46,3 @@
 
 ---
 
-## 📂 Cấu trúc thư mục Monorepo
-
-.
-├── backend/            # API Server & Socket logic
-│   ├── controllers/    # Điều hướng logic nghiệp vụ
-│   ├── models/         # Cấu trúc dữ liệu MongoDB
-│   ├── routes/         # Định nghĩa các đầu API
-│   └── middleware/     # Bảo mật JWT & Phân quyền Admin
-├── frontend/           # Giao diện người dùng (React)
-│   ├── src/pages/      # Các trang Client & Admin
-│   └── src/components/ # Các thành phần UI tái sử dụng
-└── README.md
