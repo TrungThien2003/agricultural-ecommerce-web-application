@@ -57,3 +57,74 @@
 │   ├── src/components/     # Các thành phần UI dùng chung
 │   └── src/redux/          # Quản lý State toàn cục
 └── README.md
+
+---
+
+## 🚀 Hướng dẫn cài đặt
+
+Để khởi chạy dự án **AgriShop** trên máy tính cá nhân, bạn hãy thực hiện theo các bước sau:
+
+### 1. Yêu cầu hệ thống
+Đảm bảo máy tính của bạn đã cài đặt sẵn:
+- [Node.js](https://nodejs.org/) (Phiên bản 16.0 trở lên)
+- [MongoDB](https://www.mongodb.com/try/download/community) (Local hoặc sử dụng MongoDB Atlas)
+- [Git](https://git-scm.com/)
+
+---
+
+### 2. Các bước triển khai
+
+#### Bước 1: Tải mã nguồn (Clone)
+Mở Terminal/Command Prompt và chạy lệnh:
+```bash
+git clone [https://github.com/TrungThien2003/agricultural-ecommerce-web-application.git](https://github.com/TrungThien2003/agricultural-ecommerce-web-application.git)
+cd agricultural-ecommerce-web-application
+Bước 2: Thiết lập Backend
+Di chuyển vào thư mục backend:
+
+Bash
+
+cd backend
+Cài đặt các thư viện cần thiết:
+
+Bash
+
+npm install
+Tạo file .env trong thư mục backend/ và cấu hình các biến môi trường:
+
+Đoạn mã
+
+PORT=5000
+MONGO_DB=mongodb+srv://<user>:<password>@cluster.mongodb.net/AgriShop
+ACCESS_TOKEN_SECRET=Chuoi_Bi_Mat_Cua_Ban
+REFRESH_TOKEN_SECRET=Chuoi_Bi_Mat_Refresh
+GEMINI_API_KEY=AIzaSy... (Lấy từ Google AI Studio)
+Khởi chạy Server:
+
+Bash
+
+npm start
+Bước 3: Thiết lập Frontend
+Mở một Terminal mới và di chuyển vào thư mục frontend:
+
+Bash
+
+cd frontend
+Cài đặt thư viện:
+
+Bash
+
+npm install
+Khởi chạy ứng dụng:
+
+Bash
+
+npm start
+3. Thông tin truy cập
+Sau khi cả hai Server đã chạy thành công:
+
+Giao diện người dùng (Client): http://localhost:5173
+
+API Backend: http://localhost:5000
+
+Lưu ý: Nếu bạn thay đổi PORT ở file .env của Backend, hãy nhớ cập nhật URL API ở phía Frontend để hai bên có thể kết nối được với nhau.
