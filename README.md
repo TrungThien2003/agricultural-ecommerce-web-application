@@ -43,6 +43,31 @@
 - **Backend:** Node.js (Express), Socket.io, JWT Authentication.
 - **Database:** MongoDB & Mongoose.
 - **AI Integration:** Google Generative AI (Gemini Model).
-
 ---
+
+🚀 Hướng dẫn cài đặt
+1. Cấu hình Backend
+Di chuyển vào thư mục backend và tạo file .env:
+
+Bash
+
+cd backend
+npm install
+Nội dung file .env:
+
+Đoạn mã
+
+PORT=3003
+MONGO_DB=mongodb+srv://your_url
+ACCESS_TOKEN_SECRET=your_secret
+REFRESH_TOKEN_SECRET=your_secret
+GEMINI_API_KEY=your_key
+Chạy server: npm start
+
+2. Cấu hình Frontend
+Bash
+
+cd ../frontend
+npm install
+npm start
 
