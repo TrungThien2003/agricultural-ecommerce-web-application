@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cửa Hàng Nông Sản Sạch</title>
+    <style>
+        /* --- Cài đặt Chung --- */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        /* --- 1. Header & Thanh Tìm Kiếm (Yêu Cầu Mới) --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #5a8a09;
+            /* Màu xanh lá đậm */
+        }
+
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .search-bar {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            width: 250px;
+            font-size: 14px;
+        }
+
+        /* --- 2. Tiêu Đề & Lọc Danh Mục Con (Yêu Cầu Mới) --- */
+        .store-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
+        .store-header .title-block h2 {
+            font-size: 36px;
+            margin: 0 0 10px 0;
+        }
+
+        .store-header .title-block p {
+            font-size: 16px;
+            color: #777;
+            margin: 0;
+        }
+
+        .category-filters {
+            display: flex;
+            gap: 10px;
+        }
+
+        .category-filters .filter-pill {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background-color: #f9f9f9;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .category-filters .filter-pill.active,
+        .category-filters .filter-pill:hover {
+            background-color: #add13c;
+            /* Màu xanh lá nhạt */
+            color: #fff;
+            border-color: #add13c;
+        }
+
+        /* --- 3. Bộ Lọc Nâng Cao (Yêu Cầu Mới) --- */
+        .advanced-filter-bar {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 40px;
+        }
+
+        .advanced-filter-bar select,
+        .advanced-filter-bar button {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fdfdfd;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .advanced-filter-bar select {
+            appearance: none;
+            /* Ẩn giao diện mặc định */
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px;
+            padding-right: 35px;
+            /* Thêm không gian cho mũi tên */
+        }
+
+
+        /* --- 4. Lưới Sản Phẩm --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* Thẻ Sản Phẩm (Theo phong cách của bạn) */
+        .product-card {
+            background: #fff;
+            text-align: center;
+            /* Thêm viền nhẹ để phân tách, có thể bỏ đi nếu muốn */
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-image-container {
+            position: relative;
+            background-color: #f7f7f7;
+            /* Nền xám nhạt cho ảnh */
+            padding: 20px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            /* 'contain' để giữ nguyên hình dạng sản phẩm */
+            display: block;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #add13c;
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            font-size: 20px;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+
+        .product-info .price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .view-product-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #add13c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .view-product-btn:hover {
+            background-color: #92b134;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="container">
+        <div class="logo">FARM</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Pages</a>
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Products</a>
+        </nav>
+        <input type="text" class="search-bar" placeholder="Tìm kiếm sản phẩm...">
+    </header>
+
+    <div class="container">
+
+        <div class="store-header">
+            <div class="title-block">
+                <h2>Our Store</h2>
+                <p>Nông sản sạch, giao tận nhà.</p>
+            </div>
+
+            <div class="category-filters">
+                <span>Explore:</span>
+                <span class="filter-pill active">Tất Cả</span>
+                <span class="filter-pill">Trái Cây Hữu Cơ</span>
+                <span class="filter-pill">Rau Củ Hữu Cơ</span>
+            </div>
+        </div>
+
+        <div class="advanced-filter-bar">
+            <select id="filter-certification">
+                <option value="">Tiêu Chuẩn Sản Phẩm</option>
+                <option value="vietgap">VietGAP</option>
+                <option value="organic">Hữu cơ (Organic)</option>
+                <option value="globalgap">GlobalGAP</option>
+            </select>
+
+            <select id="filter-method">
+                <option value="">Phương Pháp Canh Tác</option>
+                <option value="hydroponic">Thủy canh</option>
+                <option value="greenhouse">Nhà kính</option>
+                <option value="natural">Thuận tự nhiên</option>
+            </select>
+
+            <select id="sort-by">
+                <option value="default">Sắp xếp mặc định</option>
+                <option value="price-asc">Giá: Thấp đến Cao</option>
+                <option value="price-desc">Giá: Cao đến Thấp</option>
+                <option value="newest">Mới nhất</option>
+            </select>
+        </div>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <span class="product-tag">SAVE 12%</span>
+                    <img src="https://via.placeholder.com/300x300.png?text=Dâu+Tây" alt="Dâu Tây">
+                </div>
+                <div class="product-info">
+                    <h3>Strawberries</h3>
+                    <div class="price">$16.00 USD</div>
+                    <a href="#" class="view-product-btn">View Product</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <span class="product-tag">HỮU CƠ</span>
+                    <img src="https://via.placeholder.com/300x300.png?text=Táo" alt="Táo">
+                </div>
+                <div class="product-info">
+                    <h3>Apples</h3>
+                    <div class="price">$16.00 USD</div>
+                    <a href="#" class="view-product-btn">View Product</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image-container">
+                    <span class="product-tag">VIETGAP</span>
+                    <img src="https://via.placeholder.com/300x300.png?text=Chuối" alt="Chuối">
+                </div>
+                <div class="product-info">
+                    <h3>Bananas</h3>
+                    <div class="price">$16.00 USD</div>
+                    <a href="#" class="view-product-btn">View Product</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

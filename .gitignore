@@ -1,0 +1,13 @@
+# Thư mục backend
+backend/node_modules/
+backend/.env
+
+# Thư mục frontend
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.env
+
+# Các file hệ thống
+.DS_Store
+Thumbs.db
