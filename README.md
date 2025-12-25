@@ -8,66 +8,52 @@
   <img src="https://img.shields.io/badge/Gemini_AI-8E75C2?style=for-the-badge&logo=googlegemini&logoColor=white" />
 </p>
 
-**AgriShop** là nền tảng thương mại điện tử chuyên biệt cho nông sản sạch. Hệ thống tích hợp **Trí tuệ nhân tạo (Gemini AI)** tư vấn thông minh và **Socket.io** hỗ trợ khách hàng theo thời gian thực.
+**AgriShop** là một nền tảng thương mại điện tử hiện đại chuyên cung cấp nông sản sạch. Dự án được xây dựng với mục tiêu kết nối người nông dân và khách hàng, tích hợp **Trí tuệ nhân tạo (AI)** để tư vấn tự động và hệ thống **Chat Realtime** để hỗ trợ khách hàng tối ưu.
 
 ---
 
-## 📺 Demo giao diện
+## ✨ Tính năng nổi bật
 
-| Trang chủ (Client) | Dashboard (Admin) |
-| :---: | :---: |
-| <img src="https://via.placeholder.com/400x200?text=Giao+dien+Client" width="400" /> | <img src="https://via.placeholder.com/400x200?text=Giao+dien+Admin" width="400" /> |
+### 👤 Đối với Khách hàng (Client)
+- **Mua sắm thông minh:** Tìm kiếm, xem chi tiết và lọc sản phẩm theo danh mục/nhà cung cấp.
+- **Thanh toán trực tuyến:** Giỏ hàng tiện lợi, tích hợp quy trình thanh toán nhanh chóng.
+- **Chat Realtime:** Trò chuyện trực tiếp với Admin để được giải đáp thắc mắc ngay lập tức.
+- **Hỗ trợ AI (Gemini):** Tự động nhận diện sản phẩm và tư vấn khách hàng khi Admin vắng mặt.
+- **Lịch sử đơn hàng:** Theo dõi trạng thái và quản lý danh sách các đơn hàng đã mua.
 
----
-
-## ✨ Tính năng chính
-
-### 👤 Cho Khách hàng (Client)
-- 🛒 **Mua sắm:** Tìm kiếm, lọc sản phẩm theo danh mục và nhà cung cấp.
-- 💳 **Thanh toán:** Giỏ hàng thông minh và tích hợp cổng thanh toán trực tuyến.
-- 💬 **Hỗ trợ Realtime:** Chat trực tiếp với Admin qua Socket.io.
-- 🤖 **AI Bot:** Tự động trả lời thắc mắc sản phẩm nhờ Google Gemini AI.
-- 📋 **Đơn hàng:** Theo dõi trạng thái đơn hàng và lịch sử mua sắm.
-
-### 🔐 Cho Quản trị viên (Admin)
-- 📊 **Thống kê:** Dashboard theo dõi doanh thu, số lượng đơn hàng và người dùng.
-- 📦 **Quản lý kho:** CRUD (Thêm, sửa, xóa) Sản phẩm, Danh mục, Nhà cung cấp.
-- 👥 **Quản lý User:** Phân quyền và kiểm soát danh sách người dùng.
-- 🎧 **Trung tâm hỗ trợ:** Giao diện chat tập trung để trả lời khách hàng.
+### 🔐 Đối với Quản trị viên (Admin)
+- **Dashboard Thống kê:** Theo dõi doanh thu, số lượng đơn hàng và biểu đồ tăng trưởng người dùng.
+- **Quản lý Sản phẩm (CRUD):** Thêm mới, cập nhật thông tin và quản lý tồn kho sản phẩm.
+- **Quản lý Danh mục & Nhà cung cấp:** Tổ chức hệ thống phân loại và nguồn cung ứng hàng hóa.
+- **Quản lý Người dùng:** Kiểm soát danh sách khách hàng, phân quyền Admin và quản lý tài khoản.
+- **Trung tâm Phản hồi:** Hệ thống quản lý hội thoại tập trung, phản hồi khách hàng realtime.
 
 ---
 
 ## 🛠 Công nghệ sử dụng
 
-- **Frontend:** React.js, Redux, Tailwind CSS, Ant Design.
-- **Backend:** Node.js (Express), Socket.io, JWT Authentication.
-- **Database:** MongoDB & Mongoose.
-- **AI Integration:** Google Generative AI (Gemini Model).
+| Thành phần | Công nghệ |
+| :--- | :--- |
+| **Frontend** | ReactJS, Redux, Tailwind CSS, Ant Design |
+| **Backend** | Node.js, Express.js, JWT Authentication |
+| **Database** | MongoDB & Mongoose |
+| **Realtime** | Socket.io (WebSockets) |
+| **AI Support** | Google Generative AI (Gemini 1.5/2.0 Flash) |
+
 ---
 
-🚀 Hướng dẫn cài đặt
-1. Cấu hình Backend
-Di chuyển vào thư mục backend và tạo file .env:
+## 📂 Cấu trúc thư mục (Monorepo)
 
-Bash
-
-cd backend
-npm install
-Nội dung file .env:
-
-Đoạn mã
-
-PORT=3003
-MONGO_DB=mongodb+srv://your_url
-ACCESS_TOKEN_SECRET=your_secret
-REFRESH_TOKEN_SECRET=your_secret
-GEMINI_API_KEY=your_key
-Chạy server: npm start
-
-2. Cấu hình Frontend
-Bash
-
-cd ../frontend
-npm install
-npm start
-
+```text
+.
+├── backend/                # Source code Server (API & Socket)
+│   ├── controllers/        # Xử lý logic nghiệp vụ
+│   ├── models/             # Schema Database MongoDB
+│   ├── routes/             # Định nghĩa các Endpoints API
+│   ├── middleware/         # Xác thực (JWT) & Phân quyền (Admin)
+│   └── .env                # File cấu hình môi trường (Bảo mật)
+├── frontend/               # Source code Client (React App)
+│   ├── src/pages/          # Giao diện chính (Home, Admin, Cart...)
+│   ├── src/components/     # Các thành phần UI dùng chung
+│   └── src/redux/          # Quản lý State toàn cục
+└── README.md
