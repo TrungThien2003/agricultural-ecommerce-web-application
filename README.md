@@ -22,7 +22,7 @@
 - **Lịch sử đơn hàng:** Theo dõi trạng thái và quản lý danh sách các đơn hàng đã mua.
 
 ### 🔐 Đối với Quản trị viên (Admin)
-- **Dashboard Thống kê:** Theo dõi doanh thu, số lượng đơn hàng và biểu đồ tăng trưởng người dùng.
+- **Dashboard Thống kê:** Theo dõi doanh thu, số lượng đơn hàng và biểu đồ tăng trưởng doanh thu.
 - **Quản lý Sản phẩm (CRUD):** Thêm mới, cập nhật thông tin và quản lý tồn kho sản phẩm.
 - **Quản lý Danh mục & Nhà cung cấp:** Tổ chức hệ thống phân loại và nguồn cung ứng hàng hóa.
 - **Quản lý Người dùng:** Kiểm soát danh sách khách hàng, phân quyền Admin và quản lý tài khoản.
