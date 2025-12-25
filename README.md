@@ -34,7 +34,7 @@
 
 | Thành phần | Công nghệ |
 | :--- | :--- |
-| **Frontend** | ReactJS, Redux, Tailwind CSS, Ant Design |
+| **Frontend** | ReactJS, Redux, Tailwind CSS |
 | **Backend** | Node.js, Express.js, JWT Authentication |
 | **Database** | MongoDB & Mongoose |
 | **Realtime** | Socket.io (WebSockets) |
